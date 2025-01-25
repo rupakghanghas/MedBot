@@ -12,4 +12,4 @@ nltk
 pandas
 flask
 gunicorn
-pickle5
+pickle5==0.0.11
