@@ -12,5 +12,4 @@ nltk
 pandas
 flask
 gunicorn
-pickle
 pip>=21.0.0
