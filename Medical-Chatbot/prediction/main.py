@@ -39,6 +39,6 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use Render's PORT or default to 5000
+    port = int(os.environ.get('PORT', 3000))  # Railway commonly uses 3000 as default
     print(f"Starting Flask app on port {port}...")
     app.run(host='0.0.0.0', port=port)
