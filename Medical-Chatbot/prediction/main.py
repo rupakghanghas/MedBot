@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from chat import get_response, predict_class
 import json
-
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  # Disable GPU
 app = Flask(__name__)
 CORS(app)
 
