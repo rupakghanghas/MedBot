@@ -7,9 +7,18 @@ import json
 app = Flask(__name__)
 CORS(app)
 
+# Debug: Print current working directory and files
+print("Current working directory:", os.getcwd())
+print("Files in directory:", os.listdir())
+
 # Load intents
-with open('intents.json', 'r') as f:
-    intents = json.load(f)
+try:
+    intents_path = os.path.join(os.path.dirname(__file__), 'intents.json')
+    with open(intents_path, 'r') as f:
+        intents = json.load(f)
+    print("Intents loaded successfully!")
+except Exception as e:
+    print(f"Error loading intents.json: {e}")
 
 @app.route('/')
 def home():
