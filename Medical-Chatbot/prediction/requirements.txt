@@ -12,4 +12,5 @@ nltk
 pandas
 flask
 gunicorn
+waitress==2.1.2
 pip>=21.0.0
