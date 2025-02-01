@@ -1,14 +1,13 @@
-
 import os
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from chat import get_response, predict_class
 import json
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  # Disable GPU
+
 app = Flask(__name__)
 CORS(app)
 
-# Load intents once when the application starts
+# Load intents
 with open('intents.json', 'r') as f:
     intents = json.load(f)
 
@@ -31,5 +30,6 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5000))  # Use Render's PORT or default to 5000
+    print(f"Starting Flask app on port {port}...")
     app.run(host='0.0.0.0', port=port)
